@@ -5,6 +5,7 @@ import {
   WalletDisconnectButton,
 } from "@solana/wallet-adapter-react-ui";
 import loadAnchor from "../utils/loadAnchor";
+import { useEffect } from "react";
 
 interface HeaderProps {
   setProgram: any;
@@ -12,6 +13,10 @@ interface HeaderProps {
 
 const Header: NextPage<HeaderProps> = ({ setProgram }) => {
   const wallet = useWallet();
+  useEffect(() => {
+    loadAnchor(setProgram, wallet);
+  }, [wallet.connected]);
+
   if (!wallet.connected) {
     /* If the user's wallet is not connected, display connect wallet button. */
     return (
@@ -26,7 +31,6 @@ const Header: NextPage<HeaderProps> = ({ setProgram }) => {
       </header>
     );
   } else {
-    loadAnchor(setProgram, wallet);
     return (
       <header
         style={{

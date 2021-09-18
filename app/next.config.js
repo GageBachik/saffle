@@ -34,8 +34,6 @@ module.exports = withTM({
       path: false,
       os: false,
       crypto: false,
-      // assert: false,
-      // process: false,
     };
     return config;
   },

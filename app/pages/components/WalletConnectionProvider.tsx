@@ -1,3 +1,4 @@
+import type { NextPage } from "next";
 import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
 import {
   ConnectionProvider,
@@ -15,7 +16,6 @@ import {
 import { clusterApiUrl } from "@solana/web3.js";
 import { useMemo } from "react";
 import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
-import type { NextPage } from "next";
 
 const WalletConnectionProvider: NextPage = ({ children }) => {
   //   // Can be set to 'devnet', 'testnet', or 'mainnet-beta'
