@@ -17,33 +17,20 @@ const Header: NextPage<HeaderProps> = ({ setProgram }) => {
     loadAnchor(setProgram, wallet);
   }, [wallet.connected]);
 
+  let WalletButton;
   if (!wallet.connected) {
-    /* If the user's wallet is not connected, display connect wallet button. */
-    return (
-      <header
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          marginTop: "100px",
-        }}
-      >
-        <WalletMultiButton />
-      </header>
-    );
+    WalletButton = <WalletMultiButton />;
   } else {
-    return (
-      <header
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          marginTop: "100px",
-        }}
-      >
-        <WalletDisconnectButton />
-      </header>
-    );
+    WalletButton = <WalletDisconnectButton />;
   }
-  return <div> loadin? </div>;
+  return (
+    <header className="flex">
+      <div className="flex-1">
+        <h1 className="text-3xl font-bold m-5"> Saffle </h1>
+      </div>
+      <div className="flex justify-end m-5">{WalletButton}</div>
+    </header>
+  );
 };
 
 export default Header;
