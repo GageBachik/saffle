@@ -13,10 +13,11 @@ import {
   getTorusWallet,
 } from "@solana/wallet-adapter-wallets";
 import { clusterApiUrl } from "@solana/web3.js";
-import { FC, useMemo } from "react";
+import { useMemo } from "react";
 import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
+import type { NextPage } from "next";
 
-const WalletConnectionProvider: FC = ({ children }) => {
+const WalletConnectionProvider: NextPage = ({ children }) => {
   //   // Can be set to 'devnet', 'testnet', or 'mainnet-beta'
   //   const network = WalletAdapterNetwork.Devnet;
   //   // You can also provide a custom RPC endpoint
